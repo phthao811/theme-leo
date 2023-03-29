@@ -1,0 +1,21 @@
+.ap-logolist__item {
+  padding: 40px 0;
+  border-left: 1px solid rgb(var(--border-color));
+  text-align: center;
+}
+.ap-logolist__item:first-child {
+  border: none;
+}
+.ap-logolist {
+  border: 1px solid rgb(var(--border-color));
+}
+@media (min-width: 992px) {
+  .ap-logolist--carousel .ap-logolist__list {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 767px) {
+  .ap-logolist--carousel .ap-logolist__list {
+    grid-auto-columns: 250px;
+  }
+}

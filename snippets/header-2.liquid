@@ -1,0 +1,224 @@
+{{ 'header-2.css' | asset_url | stylesheet_tag }}
+
+<div class="header_wrapper">
+    <div class="container">
+        <div class="header_wrapper-row">
+            <nav class="header__inline-navigation">
+                <div class="header__icon-list hd-desk">
+                    <button is="toggle-button" class="header__icon-wrapper tap-area hd-desk"
+                        ap-controlsaria="mobile-menu-drawer" ap-expanded-aria="false">
+                        <span class="visually-hidden">Navigation</span>
+                        <svg focusable="false" width="18" height="14"
+                            class="icon icon--header-hamburger   " viewBox="0 0 18 14">
+                            <path d="M0 1h18M0 13h18H0zm0-6h18H0z" fill="none" stroke="currentColor"
+                                stroke-width="1.2"></path>
+                        </svg>
+                    </button>
+                    <a href="/search" is="ap-togglelink"
+                        class="header__icon-wrapper tap-area hd-lap hd-desk"
+                        ap-controlsaria="search-drawer" ap-expanded-aria="false"
+                        aria-label="Search">
+                        <svg focusable="false" width="18" height="18"
+                            class="icon icon--header-search   " viewBox="0 0 18 18">
+                            <path
+                                d="M12.336 12.336c2.634-2.635 2.682-6.859.106-9.435-2.576-2.576-6.8-2.528-9.435.106C.373 5.642.325 9.866 2.901 12.442c2.576 2.576 6.8 2.528 9.435-.106zm0 0L17 17"
+                                fill="none" stroke="currentColor" stroke-width="1.2"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="header__search-bar predictive-search hd-pocket">
+                    <form class="predictive-search__form" action="/search" method="get"
+                        role="search">
+                        <input type="hidden" name="type" value="product">
+                        <input type="hidden" name="options[prefix]" value="last">
+                        <input type="hidden" name="options[unavailable_products]" value="last">
+                        <button class="btn-search-header">
+                            <svg focusable="false" width="18" height="18"
+                                class="icon icon--header-search   " viewBox="0 0 18 18">
+                                <path
+                                    d="M12.336 12.336c2.634-2.635 2.682-6.859.106-9.435-2.576-2.576-6.8-2.528-9.435.106C.373 5.642.325 9.866 2.901 12.442c2.576 2.576 6.8 2.528 9.435-.106zm0 0L17 17"
+                                    fill="none" stroke="currentColor" stroke-width="1.2"></path>
+                            </svg>
+                        </button>
+                        <input class="predictive-search__input" is="ap-predictivesearchinput"
+                            type="text" name="q" autocomplete="off" autocorrect="off"
+                            ap-controlsaria="search-drawer" ap-expanded-aria="false"
+                            aria-label="Search" placeholder="What are you looking for?">
+                    </form>
+                </div>
+            </nav>
+
+            {% render 'header-logo' %}
+            {%- if section.settings.info_contact-%}
+                <div class="header__hotline-image">
+                    <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="46" height="46" rx="23" fill="#F5F7FA"/>
+                    <path d="M30.8241 27.6993L28.1922 25.8603C27.848 25.6207 27.4458 25.4939 27.0286 25.4939C26.3651 25.4939 25.7424 25.8192 25.3631 26.3635L24.7522 27.2391C23.7282 26.5524 22.5854 25.5935 21.4966 24.5047C20.4076 23.4156 19.4487 22.2731 18.7624 21.2491L19.6373 20.6384C20.556 19.9986 20.7819 18.7295 20.1406 17.8087L18.302 15.1772C17.9173 14.6271 17.2968 14.2988 16.6422 14.2988C16.4155 14.2988 16.1929 14.3387 15.9809 14.4171C15.7405 14.5061 15.5165 14.615 15.2967 14.7529L14.9333 15.0088C14.8425 15.0796 14.758 15.1568 14.677 15.2377C14.2337 15.681 13.9189 16.242 13.7416 16.9053C12.984 19.7453 14.8607 24.0391 18.4114 27.5898C21.3933 30.5716 24.9755 32.4242 27.7602 32.4244H27.7608C28.2372 32.4244 28.6863 32.3688 29.0961 32.2597C29.7595 32.0824 30.3204 31.7676 30.7632 31.3246C30.8443 31.2439 30.9217 31.1592 31.0042 31.0523L31.2605 30.6865C31.3861 30.4854 31.495 30.2612 31.5842 30.0204C31.8941 29.1833 31.5816 28.2288 30.8241 27.6993ZM30.8221 29.7383C30.7523 29.9276 30.6678 30.1015 30.5835 30.2376L30.351 30.5695C30.3012 30.6335 30.2465 30.6924 30.1889 30.7498C29.8481 31.091 29.4098 31.3347 28.8865 31.4746C28.5453 31.5656 28.1666 31.6119 27.7608 31.6119C27.7606 31.6119 27.7604 31.6119 27.7602 31.6119C25.183 31.6117 21.8209 29.8504 18.9859 27.0154C15.6857 23.7152 13.852 19.644 14.5267 17.115C14.6665 16.5917 14.9103 16.1533 15.2515 15.8121C15.3086 15.755 15.3677 15.7001 15.4161 15.662L15.7454 15.4299C15.9002 15.3333 16.0741 15.249 16.263 15.1792C16.3844 15.1341 16.5121 15.1113 16.6422 15.1113C17.0318 15.1113 17.4034 15.3101 17.636 15.6427L19.4741 18.2735C19.8591 18.8261 19.724 19.5878 19.1728 19.9718L17.975 20.8078C17.7973 20.9317 17.7483 21.1735 17.8636 21.357C18.5886 22.5101 19.6748 23.832 20.9221 25.0791C22.1691 26.3262 23.4908 27.4125 24.6443 28.1379C24.8279 28.2532 25.0695 28.204 25.1937 28.0264L26.0298 26.8281C26.4004 26.2959 27.1922 26.1537 27.7274 26.5268L30.3587 28.3654C30.8132 28.683 31.0038 29.2476 30.8221 29.7383Z" fill="black"/>
+                    <path d="M29.4699 16.5314C27.7189 14.7803 25.3945 13.7309 22.9248 13.5766C22.7023 13.5617 22.5081 13.7329 22.494 13.9567C22.4799 14.1806 22.6501 14.3734 22.874 14.3875C25.1459 14.5295 27.2843 15.495 28.8954 17.1059C30.5061 18.7166 31.4713 20.8548 31.6136 23.1266C31.6271 23.3419 31.8058 23.5075 32.0186 23.5075C32.0272 23.5075 32.0357 23.5073 32.0444 23.5067C32.2684 23.4926 32.4386 23.2998 32.4245 23.0759C32.27 20.6064 31.2206 18.2822 29.4699 16.5314Z" fill="black"/>
+                    <path d="M22.7217 16.8204C24.4009 16.9255 25.9812 17.639 27.1718 18.8296C28.3622 20.0202 29.0757 21.6003 29.1808 23.2791C29.1943 23.4943 29.3731 23.66 29.5859 23.66C29.5944 23.66 29.603 23.6598 29.6117 23.6592C29.8356 23.6451 30.0058 23.4523 29.9917 23.2283C29.8743 21.3518 29.0769 19.5856 27.7463 18.2551C26.4156 16.9245 24.6492 16.1269 22.7725 16.0094C22.5477 15.9969 22.3557 16.1658 22.3416 16.3895C22.3276 16.6135 22.4977 16.8063 22.7217 16.8204Z" fill="black"/>
+                    <path d="M22.5694 19.2528C23.6554 19.3208 24.6778 19.7824 25.4482 20.5527C26.2185 21.3231 26.6801 22.3453 26.7483 23.4311C26.7618 23.6465 26.9407 23.812 27.1534 23.812C27.1619 23.812 27.1706 23.8118 27.1791 23.8112C27.4031 23.7971 27.5733 23.6041 27.5592 23.3803C27.4787 22.0967 26.933 20.8887 26.0227 19.9782C25.1122 19.0679 23.9038 18.5222 22.6201 18.4419C22.3932 18.4266 22.2034 18.5982 22.1893 18.8219C22.1752 19.0459 22.3454 19.2387 22.5694 19.2528Z" fill="black"/>
+                    </svg>
+                <div>
+                    <p class="hotline-text">{{ section.settings.heading_hotline}}</p>
+                    <p class="hotline-text" style="display: flex; gap: 0.5rem;">
+                        <span>
+                            <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="3" cy="3" r="3" fill="#35C35C"/>
+                            </svg>
+                        </span>
+                    {{ section.settings.desc_hotline}}
+                    </p>
+                </div>
+            </div>
+            {%- endif -%}
+            {% if section.settings.enable_localization %}
+                        {% render 'localization' %}
+                    {% endif %}
+            <div class="header__secondary-links">
+                <div>
+                    {% if section.settings.enable_login %}
+                    <a href="/account/login"
+                        class=""
+                        style="display:block; height: 20px"
+                        aria-label="Login">
+                        {% if section.settings.enable_login_icon %}
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.99967 9.99984C12.3009 9.99984 14.1663 8.13436 14.1663 5.83317C14.1663 3.53198 12.3009 1.6665 9.99967 1.6665C7.69849 1.6665 5.83301 3.53198 5.83301 5.83317C5.83301 8.13436 7.69849 9.99984 9.99967 9.99984Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17.1585 18.3333C17.1585 15.1083 13.9501 12.5 10.0001 12.5C6.05013 12.5 2.8418 15.1083 2.8418 18.3333" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                        {% endif %}
+                    </a>
+                    {%- endif -%}
+                </div>
+                {%- if section.settings.enable_wishlist -%}
+                <div class="header-icon icon-wishlist">
+                    <a href="/pages/wishlist">
+                        {% render 'icon-wishlist-header' %}
+                        {% if section.settings.enable_wishlist_icon %}
+                            <div class="icon-count">   
+                                <div class="title-icon">Wishlist</div>
+                                <ap-wishlistcount id="wishlistcount"></ap-wishlistcount> <span>items</span>
+                            </div>
+                        {%- endif -%}
+                        
+                    </a>
+                </div>
+            {%- endif -%}
+
+                <div class="header-icon icon-compare d-none">
+                    <a href="/pages/compare">
+                        {% render 'icon-compare' %}
+                        <div class="icon-count">
+                            <div class="title-icon">Compare</div>
+                            <ap-comparecount id="comparecount"></ap-comparecount> items
+                        </div>
+                    </a>
+                </div>
+
+                {% comment %} <div class="header__icon-list">
+
+                    
+                    {% if section.settings.enable_login %}
+                    <a href="/account/login"
+                        class="header__icon-wrapper tap-area d-none hd-phone hd-desk"
+                        aria-label="Login">
+                        {% if section.settings.enable_login_icon %}
+                        <svg focusable="false" width="18" height="17"
+                            class="icon icon--header-customer   " viewBox="0 0 18 17">
+                            <circle cx="9" cy="5" r="4" fill="none" stroke="currentColor"
+                                stroke-width="1.2" stroke-linejoin="round"></circle>
+                            <path d="M1 17v0a4 4 0 014-4h8a4 4 0 014 4v0" fill="none"
+                                stroke="currentColor" stroke-width="1.2"></path>
+                        </svg>
+                        {% endif %}
+                    </a>
+                    {%- endif -%} 
+                    <a href="/cart" is="ap-togglelink" ap-controlsaria="mini-cart"
+                        ap-expanded-aria="false" class="header__icon-wrapper tap-area hd-desk"
+                        aria-label="Cart" data-no-instant="">
+                        <svg focusable="false" width="20" height="18"
+                            class="icon icon--header-cart   " viewBox="0 0 20 18">
+                            <path d="M3 1h14l1 16H2L3 1z" fill="none" stroke="currentColor"
+                                stroke-width="1.2"></path>
+                            <path d="M7 4v0a3 3 0 003 3v0a3 3 0 003-3v0" fill="none"
+                                stroke="currentColor" stroke-width="1.2"></path>
+                        </svg>
+                        <ap-cartcount
+                            class="header__ap-cartcount header__ap-cartcount--floating bubble-count">{{
+                            cart.item_count }}</ap-cartcount>
+                    </a> 
+
+                </div> {% endcomment %}
+                
+                <ul class="header__linklist list--unstyled hd-pocket hd-lap" role="list">
+                    <li class="header__linklist-item">
+                        {%- if section.settings.enable_cart -%}
+                        <a href="/cart" is="ap-togglelink" ap-controlsaria="mini-cart"
+                            ap-expanded-aria="false" data-no-instant="">
+                            <span class="icon-cart_header">
+                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.1751 6.80507C19.0484 6.80507 18.9604 6.80507 18.8723 6.80507C15.6457 6.80507 12.4191 6.80507 9.18708 6.80507C8.66951 6.80507 8.35016 6.54678 8.27858 6.07715C8.20149 5.60166 8.54287 5.13791 8.99437 5.10855C9.04943 5.10268 9.10449 5.10268 9.15955 5.10268C12.8156 5.10268 16.4661 5.10268 20.1221 5.10268C20.6012 5.10268 20.9315 5.36098 20.9921 5.81886C21.0141 5.96562 20.9866 6.12411 20.9535 6.27087C20.436 8.48984 19.9184 10.7088 19.3953 12.9219C19.087 14.2427 18.1785 15 16.9011 15C14.3958 15 11.8906 15 9.3853 15C8.12992 15 7.23793 14.278 6.90206 12.9924C6.07615 9.81653 5.24474 6.6407 4.41883 3.46487C4.27016 2.90132 4.0279 2.70173 3.4883 2.70173C2.90466 2.70173 2.31551 2.71347 1.73187 2.68999C1.34094 2.67825 1.04911 2.34952 1.00507 1.92685C0.961017 1.53941 1.20879 1.15198 1.57219 1.04044C1.65478 1.01696 1.74838 1.00522 1.83648 1.00522C2.42563 1.00522 3.02029 0.993477 3.60943 1.00522C4.7547 1.02283 5.63016 1.75075 5.9385 2.93067C6.38449 4.62132 6.81947 6.31783 7.25996 8.01435C7.65639 9.52888 8.05283 11.0493 8.44927 12.5638C8.58692 13.0863 8.85121 13.2976 9.36327 13.2976C11.8795 13.2976 14.4013 13.2976 16.9176 13.2976C17.4352 13.2976 17.705 13.0687 17.8316 12.5345C18.2611 10.7029 18.6906 8.86554 19.12 7.03401C19.142 6.96944 19.1531 6.90486 19.1751 6.80507Z" fill="black"/>
+                                <path d="M15.4903 16C16.309 15.9936 16.987 16.6667 16.9998 17.4872C17.0126 18.3141 16.3282 19.0064 15.4967 19C14.678 19 14.0064 18.3269 14 17.5064C14 16.6859 14.6716 16.0065 15.4903 16Z" fill="black"/>
+                                <path d="M12 17.4936C12 18.3205 11.3383 18.9871 10.5096 19C9.67452 19.0064 9 18.3333 9 17.4936C9 16.6667 9.67452 16 10.4968 16C11.3255 15.9936 12 16.6667 12 17.4936Z" fill="black"/>
+                                </svg>
+                                
+                            </span>
+                            {%- if section.settings.enable_cart_icon -%}
+                            <span class="cart-content">
+                                <span class="cart-text">Cart</span>
+                                <ap-carttotalprice class="total_price show-total_price">{{
+                                    cart.total_price | money_with_currency }}</ap-carttotalprice>
+                            </span>
+                            <ap-cartcount class="header__ap-cartcount bubble-count d-none">{{
+                                cart.item_count }}</ap-cartcount>
+                            {%- endif -%}
+
+                        </a>
+                {%- endif -%}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="header-bottom">
+    <div class="container">
+        <div class="row">
+            {% if section.settings.enable_vetical %}
+            <div class="menu-vertical">
+                <button is="toggle-button" class="header__icon-wrapper tap-area"
+                    ap-controlsaria="vertical-menu-drawer" ap-expanded-aria="false">
+                    <div class="vertical-title">
+                        <div class="nav-vertical-title">All Departments</div>
+                        <div class="icon-title_vertical">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 320 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                <path
+                                    d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span class="visually-hidden">Navigation</span>
+                    <svg focusable="false" width="18" height="14"
+                        class="icon icon--header-hamburger d-xl-none " viewBox="0 0 18 14">
+                        <path d="M0 1h18M0 13h18H0zm0-6h18H0z" fill="none" stroke="currentColor"
+                            stroke-width="1.2"></path>
+                    </svg>
+                </button>
+                {% render 'vertical-menu' %}
+            </div>
+            {% endif %}
+            {% render 'header-menu', _class: "header__bottom-navigation hd-pocket hd-lap" %}
+            {% if section.settings.enable_promotion %}
+            <div class="info_promotion">
+                {% render 'icon-accordion', icon: section.settings.icon %}
+                <h3 class="h4 text_promotion">
+                {{ section.settings.promotion }}
+                </h3>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

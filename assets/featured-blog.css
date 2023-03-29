@@ -1,0 +1,105 @@
+.article-item-description {
+  margin-bottom: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.btn-blog {
+  text-transform: uppercase;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  display: inline-block;
+  font-weight: 700;
+  background-color: transparent;
+  border-bottom: 2px solid var(--primary);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.btn-blog span {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 14px;
+}
+.blog-author {
+  color: #999;
+  padding-left: 8px;
+  margin-left: 8px;
+  border-left: 1px solid rgb(var(--border-color));
+}
+.article-item__content.text-container .h5 {
+  margin: 7px 0 11px;
+  line-height: 24px;
+  text-transform: none;
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-family: var(--g-font-other);
+}
+.features--image-zoom .image-zoom img {
+  height: 100%;
+  object-fit: cover;
+}
+.article-type-2 .ap-listarticle__secondary-list {
+  margin: 0 -15px;
+  display: flex;
+}
+.article-item--horizontal {
+  padding: 0 15px;
+  flex-direction: column;
+}
+.blog-template h3.heading {
+  margin: 0 auto;
+  padding: 0 0 10px;
+}
+.ap-listarticle__secondary-list .article {
+  margin-bottom: 0;
+}
+.ap-listarticle__secondary-list .article-item__image-container {
+  width: 100%;
+}
+.article-type-2.ap-listarticle--collage {
+  margin: 0;
+  display: flex;
+}
+[dir="ltr"] .article-type-2 .ap-listarticle__secondary-list .article-item__image-container {
+  margin-right: 0;
+}
+.article-type-2 .article-item__category {
+  position: absolute;  
+  top: 0;
+  left: 0;
+  padding: 4px 13px;
+  margin-right: 0;
+  background-color: var(--primary);
+  color: #fff;
+  font-size: 11px;
+  font-family: var(--g-font-other);
+}
+.article-card__image {
+  position: relative;
+}
+.article-item__content {
+  margin-top: 14px;
+  width: 100%;
+}
+.blog__view-all a {
+  background-color: var(--primary);
+  transition: all 0.4s;
+}
+.blog__view-all a:hover {
+  background-color: #fff;
+}
+[dir="ltr"] .ap-listarticle__secondary-list .article-item__image-container {
+  margin-right: 0;
+}
+@media (max-width: 1199px) {
+  .features--image-zoom .blog-template .image-zoom img {
+    width: 100%;
+  }
+}
+@media (max-width: 999px) {
+  .article-item__category {
+    display: none;
+  }
+}

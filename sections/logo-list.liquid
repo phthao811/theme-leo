@@ -1,0 +1,192 @@
+{{ 'ap-logolist.css' | asset_url | stylesheet_tag }}
+
+<style>
+    #shopify-section-{{ section.id }} {
+        --heading-color: {{ section.settings.heading_color | color_extract: 'red' }}, {{ section.settings.heading_color | color_extract: 'green' }}, {{ section.settings.heading_color | color_extract: 'blue' }};
+        --color-body: {{ section.settings.text_color | color_extract: 'red' }}, {{ section.settings.text_color | color_extract: 'green' }}, {{ section.settings.text_color | color_extract: 'blue' }};
+      --primary-button-background: 244, 165, 28;
+      --primary-button-text-color: 255, 255, 255;
+  
+      --ap-nextap-buttonprev-background: 255, 255, 255;
+      --ap-nextap-buttonprev-color: 40, 40, 40;
+  
+      --section-background: {{ section.settings.section_background | color_extract: 'red' }}, {{ section.settings.section_background | color_extract: 'green' }}, {{ section.settings.section_background | color_extract: 'blue' }};
+      --section-logo-background: 0 0 0 / 0.0;
+      --section-logo-count: {{ section.settings.number_column }};
+    }
+  </style>
+  
+<section class="section ">
+    <div class="section__color-wrapper">
+        <div class="container ">
+            {% if section.settings.heading != blank or section.settings.heading_2 != blank %}
+                <header class="section__header container text-container">
+                    {% if section.settings.heading != blank %}
+                        <h2 class="heading h{{ section.settings.heading_size_range }}">{{ section.settings.heading }}</h2>
+                    {% endif %}
+                    {% if section.settings.heading_2 != blank %}
+                        <h3 class="heading h{{ section.settings.heading_2_size_range }}">{{ section.settings.heading_2 }}</h3>
+                    {% endif %}
+                    {% if section.settings.description != blank %}
+                        <div class="heading {{ section.settings.description_size }}">
+                        {{ section.settings.description }}
+                        </div>
+                    {% endif %} 
+                </header>
+            {% endif %}
+              <div class="scroller">
+                <div class="scroller__inner">
+                    <ap-logolist reveal-on-scroll="" class="ap-logolist ap-logolist--carousel ap-object-loaded" style="opacity: 1;">
+                        <div class="ap-logolist__list">
+                          {% for block in section.blocks %}
+                            {% if block.settings.image != blank %}
+                                  <div class="ap-logolist__item">
+                                          <img loading="lazy" sizes="200px" class="ap-logolist__image"
+                                            alt="" 
+                                            src="{{ block.settings.image | image_url: block.settings.image.width }}" 
+                                            srcset="{{ block.settings.image | image_url: width: 200 }} 200w, {{ block.settings.image | image_url: width: 300 }} 300w, {{ block.settings.image | image_url: width: 400 }} 400w" 
+                                            width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">
+                                  </div>
+                            {% else %}
+                                        <div class="ap-logolist__image">
+                                            {{ 'image' | placeholder_svg_tag }}
+                                        </div>
+                            {% endif %}
+                          {% endfor %}
+                        </div>
+                    </ap-logolist>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  
+  
+
+{% schema %}
+{
+  "name": "Logo List",
+  "tag": "section",
+  "class": "shopify-section--ap-logolist",
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_background",
+      "default": "#ffffff",
+      "label": "t:sections.all.section_background.label"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "default": "#282828",
+      "label": "t:sections.all.heading_color.label"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "default": "#282828",
+      "label": "t:sections.all.text_color.label"
+    },
+    {
+      "type": "range",
+      "id": "number_column",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 5,
+      "label": "t:sections.all.number_column.label"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.all.heading.label"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_range",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "label": "t:sections.all.heading_size_range.label"
+    },
+    {
+      "type": "text",
+      "id": "heading_2",
+      "label": "t:sections.all.heading_2.label"
+    },
+    {
+      "type": "range",
+      "id": "heading_2_size_range",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "label": "t:sections.all.heading_2_size_range.label"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "t:sections.all.description.label"
+    },
+    {
+      "type": "select",
+      "id": "description_size",
+      "options": [
+        {
+          "value": "heading--xxsmall",
+          "label": "t:sections.all.description_size.options__1.label"
+        },
+        {
+          "value": "heading--xsmall",
+          "label": "t:sections.all.description_size.options__2.label"
+        },
+        {
+          "value": "heading--small",
+          "label": "t:sections.all.description_size.options__3.label"
+        },
+        {
+          "value": "",
+          "label": "t:sections.all.description_size.options__4.label"
+        },
+        {
+          "value": "heading--large",
+          "label": "t:sections.all.description_size.options__5.label"
+        }
+      ],
+      "default": "heading--xsmall",
+      "label": "t:sections.all.description_size.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.all.image.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo list",
+      "blocks": [
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

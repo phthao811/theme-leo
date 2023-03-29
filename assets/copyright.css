@@ -1,0 +1,21 @@
+.copyright-item-content a {
+  color: #fff;
+}
+.copyright__aside {
+  justify-content: center;
+}
+.text--xsmall.copyright-item-1 {
+  font-size: 14px;
+}
+.copyright__aside {
+  min-height: 88px;
+}
+@media screen and (max-width: 1199px) {
+  .copyright__payment-methods {
+    justify-content: center;
+  }
+  .copyright-item-1 {
+    text-align: center;
+  }
+}
+   

@@ -1,0 +1,38 @@
+<form method="post" action="/localization" id="header-localization-form" accept-charset="UTF-8" class="header__cross-border hd-pocket" enctype="multipart/form-data">
+    <input type="hidden" name="form_type" value="localization">
+    <input type="hidden" name="utf8" value="✓">
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="return_to" value="/">
+    <div class="popover-container">
+        <input type="hidden" name="country_code" value="GB">
+        <span class="visually-hidden">Country/region</span>
+        <button type="button" is="toggle-button" class="popover-button text--small" ap-expanded-aria="false" ap-controlsaria="header-localization-form-currency">
+            {{ localization.country.name }} ({{ localization.country.currency.iso_code }} {{ localization.country.currency.symbol }})
+            <svg focusable="false" width="9" height="6" class="icon icon--chevron icon--inline  " viewBox="0 0 12 8">
+                <path fill="none" d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="2"></path>
+            </svg>
+        </button>
+
+        <apollopop-content id="header-localization-form-currency" class="popover">
+            <span class="popover__overlay"></span>
+            <header class="popover__header">
+                <span class="popover__title heading h6">Country/region</span>
+                <button type="button" class="popover__close-button tap-area tap-area--large" data-action="close" title="Close">
+                    <svg focusable="false" width="14" height="14" class="icon icon--close   " viewBox="0 0 14 14">
+                        <path d="M13 13L1 1M13 1L1 13" stroke="currentColor" stroke-width="2" fill="none"></path>
+                    </svg>
+                </button>
+            </header>
+            <div class="popover__content popover__content--restrict">
+                <div class="popover__choice-list">
+                    {% for country in localization.available_countries %}
+                        <button type="submit" name="country_code" value="US" class="popover__choice-item">
+                            <span class="popover__choice-label">{{ localization.country.name }} ({{ localization.country.currency.iso_code }} {{ localization.country.currency.symbol }})
+                            </span>
+                        </button>
+                    {% endfor %}
+                </div>
+            </div>
+        </apollopop-content>
+    </div>
+</form>

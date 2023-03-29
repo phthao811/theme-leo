@@ -1,0 +1,118 @@
+.section-collection-2 p.heading {
+  color: var(--heading-color);
+  font-family: var(--g-font-other);
+  margin-bottom: 20px;
+  font-size: 30px;
+  position: relative;
+  line-height: 1;
+  transition: all 0.4s;
+}
+.section-collection-2 p:not(.heading) + p {
+  margin-top: 0;
+}
+.sub-title {
+  font-family: var(--g-font-other);
+}
+.collection-2-content .heading.link {
+  color: var(--color-body);
+  font-family: var(--g-font-other);
+  text-decoration: none;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--primary);
+  width: max-content;
+  line-height: 1.2;
+}   
+.collection-2-content .heading.link:hover {
+  color: var(--primary_hover);
+}
+.sub-title {
+  font-family: var(--g-font-other);
+}
+.collection-2-content .list-collections__item-info {
+  padding: 40px 40px 40px 45px;
+}
+.collection-2-content .list-collections__item {
+  background-color: transparent;
+}
+.section-collection-2 p.heading::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 0;
+  background-color: var(--primary);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  left: 0;
+  top: 2px;
+}
+.section-collection-2 .list-collections__item:hover p.heading::before {
+  height: 85% !important;
+}
+.section-collection-2 .list-collections__item:hover p.heading {
+  padding-left: 20px;
+}
+.des-collection {
+  color: var(--des-color);
+}
+.sub-title {
+  color: var(--sub-color);
+}
+.list-collections__item-info p.heading.h1 {
+  font-size: 30px;
+  text-shadow: 2px 0px 5px #000000;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.list-collections__item-info {
+  top: unset;
+  transform: unset;
+  bottom: 0;
+}
+.collection-2 .section__header {
+  margin-bottom: 45px;
+}
+.collection-2 {
+  padding: 70px 15px 70px 15px;
+}
+.collection-2 .vertical-breather {
+  padding: 0;
+}
+.collection-2 .sub-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+  margin-bottom: 15px;
+  font-family: var(--body-font-family);
+}
+.collection-2 .text-container .heading--xsmall.link {
+  margin: 20px 0;
+}
+.section-collection-2 {
+  margin: 0;
+}
+@media (max-width: 1199px) {
+  .list-collections--collage {
+    --list-collections-collage-rows-height: 350px;
+  }
+}
+@media (max-width: 991px) {
+  .collection-2-content .list-collections__item-info {
+    padding: 20px 15px 20px;
+  }
+  .list-collections--collage {
+    --list-collections-collage-rows-height: 350px;
+  }
+}
+@media (max-width: 767px) {
+  .collection-2-content .list-collections__item-image {
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .section-collection-2 p.heading {
+    margin-bottom: 45px;
+  }
+  .collection-2 {
+    padding: 70px 0px;
+  }
+}

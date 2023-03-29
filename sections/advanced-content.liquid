@@ -1,0 +1,386 @@
+{{ 'advanced-content.css' | asset_url | stylesheet_tag }}
+
+<style>
+    #shopify-section-{{ section.id }} {
+      --heading-color: {{ section.settings.heading_color | color_extract: 'red' }}, {{ section.settings.heading_color | color_extract: 'green' }}, {{ section.settings.heading_color | color_extract: 'blue' }};
+      --color-body: {{ section.settings.text_color | color_extract: 'red' }}, {{ section.settings.text_color | color_extract: 'green' }}, {{ section.settings.text_color | color_extract: 'blue' }};
+      --primary-button-background: 244, 165, 28;
+      --primary-button-text-color: 255, 255, 255;
+      --color-a: {{ section.settings.color_a }};
+      --color-a-hover: {{ section.settings.color_a_hover }};
+  
+      --ap-nextap-buttonprev-background: {{ section.settings.prev_next_button_background | color_extract: 'red' }}, {{ section.settings.prev_next_button_background | color_extract: 'green' }}, {{ section.settings.prev_next_button_background | color_extract: 'blue' }};
+      --ap-nextap-buttonprev-color: {{ section.settings.prev_next_button_color | color_extract: 'red' }}, {{ section.settings.prev_next_button_color | color_extract: 'green' }}, {{ section.settings.prev_next_button_color | color_extract: 'blue' }};;
+  
+      --section-background: {{ section.settings.section_background | color_extract: 'red' }}, {{ section.settings.section_background | color_extract: 'green' }}, {{ section.settings.section_background | color_extract: 'blue' }};
+    }
+
+    {% for block in section.blocks %} 
+    #shopify-section-{{ section.id }} #block-{{ block.id }} {
+        --section-products-per-row: {{ block.settings.products_per_row }};
+    }
+  
+    @media screen and (min-width: 741px) {
+      #shopify-section-{{ section.id }} #block-{{ block.id }} {
+        --section-products-per-row: {{ block.settings.products_per_row_mobile }};
+      }
+    }
+  
+    @media screen and (min-width: 1000px) {
+      #shopify-section-{{ section.id }} #block-{{ block.id }} {
+        --section-products-per-row: {{ block.settings.products_per_row_tablet }}
+      }
+    }
+  
+    @media screen and (min-width: 1200px) {
+      #shopify-section-{{ section.id }} #block-{{ block.id }} {
+        --section-products-per-row: {{ block.settings.products_per_row_desktop }};
+      }
+    }
+    {% endfor %} 
+  </style>
+  
+<section class="section ">
+    <div class="section__color-wrapper">
+        <div class="container ">
+            <header class="section__header ">
+                <div class="text-container">
+                <h3 class="heading h{{ section.settings.tab_heading_size }}">{{ section.settings.tab_heading }}</h3>
+                </div>
+                {% if section.settings.tab_description %}
+                <div class="heading-description">
+                    {{ section.settings.tab_description }}
+                </div>
+                {% endif %}
+            </header>
+            <div class="row">
+                {% for block in section.blocks %}
+                    {% case block.type %}
+
+                        {%- when 'product' -%}
+                          <div id="block-{{ block.id }}" class="featured-collections advanced-product">
+                          {%- if block.settings.collection != blank -%}
+                              <ap-productlist stagger-apparition="" class="ap-productlist ap-productlist--center ap-object-loaded">
+                                  <div class="scroller">
+                                      <div class="ap-productlist__inner ap-productlist__inner--scroller hide-scrollbar">
+                                      {% liquid
+                                          assign limit = block.settings.limit
+                                          for product in block.settings.collection.products limit: limit
+                                          render 'product-grid', product: product
+                                          endfor
+                                      %}
+                                      </div>
+                                  </div>
+                                  <ap-button-nextprev class="ap-productlist__ap-nextprev hd-pocket" style="--smallest-image-aspect-ratio: 1.0">
+                                      <button class="ap-productlist__arrow ap-nextap-buttonprev ap-nextap-buttonprev--prev" disabled="">
+                                      <span class="visually-hidden">Previous</span>
+                                      <svg focusable="false" width="17" height="14" class="icon icon--nav-arrow-left  icon--direction-aware " viewBox="0 0 17 14">
+                                          <path d="M17 7H2M8 1L2 7l6 6" stroke="currentColor" stroke-width="2" fill="none"></path>
+                                      </svg>
+                                      </button>
+                                      <button class="ap-productlist__arrow ap-nextap-buttonprev ap-nextap-buttonprev--next">
+                                      <span class="visually-hidden">Next</span>
+                                      <svg focusable="false" width="17" height="14" class="icon icon--nav-arrow-right  icon--direction-aware " viewBox="0 0 17 14">
+                                          <path d="M0 7h15M9 1l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"></path>
+                                      </svg>
+                                      </button>
+                                  </ap-button-nextprev>
+                              </ap-productlist>
+                          {%- endif -%}
+                          </div>
+
+                        {%- when 'image' -%}
+                          <ap-imagetextblock reveal-on-scroll="" class="ap-imagetextblock ap-imagetextblock--small ap-imagetextblock--cover ap-object-loaded">
+                              <div class="ap-imagetextblock__image-wrapper">
+                                  <img class="ap-imagetextblock__image" reveal="" loading="lazy" 
+                                      sizes="(max-width: 999px) 100vw, 72vw" alt="" 
+                                      src="{{ block.settings.image_background | image_url: width: block.settings.image_background.width }}" 
+                                      srcset="
+                                      {{ block.settings.image_background | image_url: width: 600 }} 600w, 
+                                      {{ block.settings.image_background | image_url: width: 700 }} 700w, 
+                                      {{ block.settings.image_background | image_url: width: 800 }} 800w, 
+                                      {{ block.settings.image_background | image_url: width: 1000 }} 1000w, 
+                                      {{ block.settings.image_background | image_url: width: 1200 }} 1200w, 
+                                      {{ block.settings.image_background | image_url: width: 1400 }} 1400w, 
+                                      {{ block.settings.image_background | image_url: width: 1600 }} 1600w, 
+                                      {{ block.settings.image_background | image_url: width: 1800 }} 1800w, 
+                                      {{ block.settings.image_background | image_url: width: 2000 }} 2000w" 
+                                      width="{{ block.settings.image_background.width }}" height="{{ block.settings.image_background.height }}">
+                                      
+                              </div>
+                              <div class="image-width-text_content">
+                                <ul class="image-width-text_list">
+                                  <li class="image-width-text_item">
+                                    <a href="{{ block.settings.link_1 }}" class="image-width-text_link">{{ block.settings.text_1 }}</a>
+                                  </li>
+                                  <li class="image-width-text_item">
+                                    <a href="{{ block.settings.link_2 }}" class="image-width-text_link">{{ block.settings.text_2 }}</a>
+                                  </li>
+                                  <li class="image-width-text_item">
+                                    <a href="{{ block.settings.link_3 }}" class="image-width-text_link">{{ block.settings.text_3 }}</a>
+                                  </li>
+                                  <li class="image-width-text_item">
+                                    <a href="{{ block.settings.link_4 }}" class="image-width-text_link">{{ block.settings.text_4 }}</a>
+                                  </li>
+                                  <li class="image-width-text_item">
+                                    <a href="{{ block.settings.link_5 }}" class="image-width-text_link">{{ block.settings.text_5 }}</a>
+                                  </li>
+                                  <li class="image-width-text_item">
+                                    <a href="{{ block.settings.link_6 }}" class="image-width-text_link">{{ block.settings.text_6 }}</a>
+                                  </li>
+                                </ul>
+                              </div>
+                          </ap-imagetextblock>
+
+                    {% endcase %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.advanced-content.name",
+  "class": "shopify-section--advanced-content",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_background",
+      "default": "#ffffff",
+      "label": "t:sections.advanced-content.settings.section_background.label"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "default": "#282828",
+      "label": "t:sections.advanced-content.settings.heading_color.label"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "default": "#282828",
+      "label": "t:sections.advanced-content.settings.text_color.label"
+    },
+    {
+      "type": "color",
+      "id": "color_a",
+      "default": "#282828",
+      "label": "t:sections.advanced-content.settings.color_a.label"
+    },
+    {
+      "type": "color",
+      "id": "color_a_hover",
+      "default": "#282828",
+      "label": "t:sections.advanced-content.settings.color_a_hover.label"
+    },
+    {
+      "type": "color",
+      "id": "prev_next_button_background",
+      "default": "#FFFFFF",
+      "label": "t:sections.advanced-content.settings.prev_next_button_background.label"
+    },
+    {
+      "type": "color",
+      "id": "prev_next_button_color",
+      "default": "#282828",
+      "label": "t:sections.advanced-content.settings.prev_next_button_color.label"
+    },
+    {
+      "type": "text",
+      "id": "tab_heading",
+      "default": "Welcome to our store",
+      "label": "t:sections.advanced-content.settings.tab_heading.label"
+    },
+    {
+      "type": "range",
+      "id": "tab_heading_size",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2,
+      "label": "t:sections.advanced-content.settings.tab_heading_size.label"
+    },
+    {
+      "type": "text",
+      "id": "tab_description",
+      "label": "t:sections.advanced-content.settings.tab_description.label"
+    },
+    {
+      "type": "select",
+      "id": "tab_name_size",
+      "options": [
+        {
+          "value": "text--xxsmall",
+          "label": "t:sections.advanced-content.settings.tab_name_size.xxsmall.label"
+        },
+        {
+          "value": "text--xsmall",
+          "label": "t:sections.advanced-content.settings.tab_name_size.xsmall.label"
+        },
+        {
+          "value": "text--small",
+          "label": "t:sections.advanced-content.settings.tab_name_size.small.label"
+        },
+        {
+          "value": "text--nomal",
+          "label": "t:sections.advanced-content.settings.tab_name_size.nomal.label"
+        },
+        {
+          "value": "text--large",
+          "label": "t:sections.advanced-content.settings.tab_name_size.large.label"
+        }
+      ],
+      "default": "text--nomal",
+      "label": "t:sections.advanced-content.settings.tab_name_size.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "t:sections.advanced-content.blocks.product.name",
+      "settings": [
+        {
+          "id": "collection",
+          "type": "collection",
+          "label": "t:sections.advanced-content.blocks.product.settings.collection.label"
+        },
+        {
+          "type": "range",
+          "id": "limit",
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "default": 10,
+          "label": "t:sections.advanced-content.blocks.product.settings.limit.label"
+        },
+        {
+          "type": "range",
+          "id": "products_per_row",
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "default": 4,
+          "label": "t:sections.advanced-content.blocks.product.settings.products_per_row.label"
+        },
+        {
+          "type": "range",
+          "id": "products_per_row_mobile",
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "default": 2,
+          "label": "t:sections.advanced-content.blocks.product.settings.products_per_row_mobile.label"
+        },
+        {
+          "type": "range",
+          "id": "products_per_row_tablet",
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "default": 4,
+          "label": "t:sections.advanced-content.blocks.product.settings.products_per_row_tablet.label"
+        },
+        {
+          "type": "range",
+          "id": "products_per_row_desktop",
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "default": 4,
+          "label": "t:sections.advanced-content.blocks.product.settings.products_per_row_desktop.label"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_background",
+          "label": "t:sections.advanced-content.blocks.image.settings.image_background.label"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.advanced-content.blocks.image.settings.header_1.content"
+        },
+        {
+          "type": "text",
+          "id": "text_1",
+          "label": "t:sections.advanced-content.blocks.image.settings.text_1.label"
+        },
+        {
+          "type": "url",
+          "id": "link_1",
+          "label": "t:sections.advanced-content.blocks.image.settings.link_1.label"
+        },
+        {
+          "type": "text",
+          "id": "text_2",
+          "label": "t:sections.advanced-content.blocks.image.settings.text_2.label"
+        },
+        {
+          "type": "url",
+          "id": "link_2",
+          "label": "t:sections.advanced-content.blocks.image.settings.link_2.label"
+        },
+        {
+          "type": "text",
+          "id": "text_3",
+          "label": "t:sections.advanced-content.blocks.image.settings.text_3.label"
+        },
+        {
+          "type": "url",
+          "id": "link_3",
+          "label": "t:sections.advanced-content.blocks.image.settings.link_3.label"
+        },
+        {
+          "type": "text",
+          "id": "text_4",
+          "label": "t:sections.advanced-content.blocks.image.settings.text_4.label"
+        },
+        {
+          "type": "url",
+          "id": "link_4",
+          "label": "t:sections.advanced-content.blocks.image.settings.link_4.label"
+        },
+        {
+          "type": "text",
+          "id": "text_5",
+          "label": "t:sections.advanced-content.blocks.image.settings.text_5.label"
+        },
+        {
+          "type": "url",
+          "id": "link_5",
+          "label": "t:sections.advanced-content.blocks.image.settings.link_5.label"
+        },
+        {
+          "type": "text",
+          "id": "text_6",
+          "label": "t:sections.advanced-content.blocks.image.settings.text_6.label"
+        },
+        {
+          "type": "url",
+          "id": "link_6",
+          "label": "t:sections.advanced-content.blocks.image.settings.link_6.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.advanced-content.presets.name",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

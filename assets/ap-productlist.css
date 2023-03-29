@@ -1,0 +1,12 @@
+.ap-productlist-section {
+  overflow: hidden;
+}
+[dir="ltr"] .ap-productlist--center .ap-productlist__inner {
+  gap: 0;
+}
+@media (max-width: 576px) {
+  .ap-productlist__inner--scroller {
+    grid-auto-columns: 100vw;
+  }
+}
+  

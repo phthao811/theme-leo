@@ -1,0 +1,69 @@
+.newsletter .ap-imagetextblock__content.content-box--text-left {
+  width: 100%;
+  padding: 0;
+  background-color: transparent;
+  margin: auto;
+  max-width: 510px;
+  text-align: center;
+}
+.newsletter-section {
+  margin: 0;
+}
+.newsletter h2.heading.heading--small {
+  font-size: 24px;
+  text-transform: uppercase;
+  line-height: 36px;
+  font-weight: 400;
+}
+.newsletter h2.heading.heading--small span {
+  color: var(--primary);
+  font-family: var(--g-font-other);
+}
+.newsletter .newsletter-content > p {
+  margin: 30px 0px 25px 0px;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.description-newsletter {
+  margin-top: 10px;
+}
+.input-row {
+  width: 100%;
+  margin-bottom: 0;
+}    
+.wp-newsletter-input {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid #d7d7d7;
+}
+.wp-newsletter-input button.button.button--primary {
+  padding: 0.8em 1.7em;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  font-family: var(--g-font-other);
+}
+[dir="ltr"] .wp-newsletter-input .input__label {
+  left: 21px;
+  background-color: transparent;
+}
+.wp-newsletter-input .input__field {
+  line-height: 20px;
+  border: none;
+  padding: 0.6em 1.5em;
+  height: 36px;
+}
+.newsletter .js .no-focus-outline *:focus {
+  border: none;
+  box-shadow: none;
+}
+.wp-newsletter-input .input__field~.input__label { 
+  background-color: whitesmoke;
+  padding: 0 10px;
+}
+@media (max-width: 576px) {
+  .newsletter .ap-imagetextblock__content.content-box--text-left {
+    padding: 0 15px;
+  }
+}

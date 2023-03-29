@@ -1,0 +1,245 @@
+{{ 'announcement-bar.css' | asset_url | stylesheet_tag }}
+
+{% assign number_block = section.blocks | size %}
+{% if number_block > 0 %}
+<style>
+  :root {
+    --enable-sticky-ap-announcementbar: {% if section.settings.enable_sticky %}1{% else %}0{% endif %};
+  }
+
+  #shopify-section-announcement-bar {
+    --heading-color: {{ section.settings.heading_color | color_extract: 'red' }}, {{ section.settings.heading_color | color_extract: 'green' }}, {{ section.settings.heading_color | color_extract: 'blue' }};
+    --color-body: {{ section.settings.text_color | color_extract: 'red' }}, {{ section.settings.text_color | color_extract: 'green' }}, {{ section.settings.text_color | color_extract: 'blue' }};
+    --primary-button-background: {{ section.settings.button_background | color_extract: 'red' }}, {{ section.settings.button_background | color_extract: 'green' }}, {{ section.settings.button_background | color_extract: 'blue' }};
+    --primary-button-text-color: {{ section.settings.button_text_color | color_extract: 'red' }}, {{ section.settings.button_text_color | color_extract: 'green' }}, {{ section.settings.button_text_color | color_extract: 'blue' }};
+    --section-background: {{ section.settings.background | color_extract: 'red' }}, {{ section.settings.background | color_extract: 'green' }}, {{ section.settings.background | color_extract: 'blue' }};
+    z-index: {{ section.settings.z_index }};
+    position: relative;
+    top: {{ section.settings.top }};
+    background-color: {{ section.settings.background }};
+  }
+
+  @media screen and (min-width: 741px) {
+    :root {
+      --enable-sticky-ap-announcementbar: {% if section.settings.enable_sticky %}1{% else %}0{% endif %};
+    }
+    #shopify-section-announcement-bar {position: relative;}
+  }
+  @media (max-width: 480px) {
+    .ap-announcementbar__message .link {
+      display: none;
+    }
+  }
+</style>
+<section>
+    <ap-announcementbar auto-play="" cycle-speed="5" class="ap-announcementbar ap-announcementbar--multiple">
+
+    <div class="{%- if section.settings.fullwidth -%}container-fluid{%- else -%}container{%- endif -%}">
+      {% if section.settings.show_btn %}
+      <button data-action="prev" class="tap-area tap-area--large">
+          <span class="visually-hidden">Previous</span>
+          <svg fill="none" focusable="false" width="12" height="10" class="icon icon--nav-arrow-left-small  icon--direction-aware " viewBox="0 0 12 10">
+            <path d="M12 5L2.25 5M2.25 5L6.15 9.16M2.25 5L6.15 0.840001" stroke="currentColor" stroke-width="2"></path>
+          </svg>
+      </button>
+      {% endif %}
+
+      <div class="announcement-row">
+        <div class="ap-announcementbar__list">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'announcement' -%}
+                <ap-announcementbar-item has-content="" class="ap-announcementbar__item" {% if forloop.index != 1 %}hidden=""{% endif %}>
+                  <div class="ap-announcementbar__message text--small">
+                    <p>{{ block.settings.text | escape }}
+                      <a href="{{ block.settings.link_view }}" class="link" data-action="open-content">{{ block.settings.view_more | escape }}</a>
+                    </p>
+                  </div>
+                </ap-announcementbar-item>
+            {%- endcase -%}
+          {%- endfor -%}
+  
+        </div>
+        {%- if section.settings.show_login -%}
+        <div class="announcement-sign">
+          <div class="block-user">
+              <a href="/account/login" class="header__icon-wrapper tap-area" aria-label="Login">
+              <svg focusable="false" width="18" height="17" class="icon icon--header-customer   " viewBox="0 0 18 17">
+                <circle cx="9" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></circle>
+                <path d="M1 17v0a4 4 0 014-4h8a4 4 0 014 4v0" fill="none" stroke="currentColor" stroke-width="2"></path>
+              </svg>
+              <span class="content-sign">
+                {{ section.settings.content_sign }}
+              </span>
+              </a>
+              <div class="header-block-user">
+                  <a href="/pages/compare">
+                    Compare (<ap-comparecount id="comparecount"></ap-comparecount>)
+                  </a>
+              </div>
+          </div>
+        </div>
+        {%- endif -%}
+      </div>
+
+      {% if section.settings.show_btn %}
+      <button data-action="next" class="tap-area tap-area--large">
+          <span class="visually-hidden">Next</span>
+          <svg fill="none" focusable="false" width="12" height="10" class="icon icon--nav-arrow-right-small  icon--direction-aware " viewBox="0 0 12 10">
+            <path d="M-3.63679e-07 5L9.75 5M9.75 5L5.85 9.16M9.75 5L5.85 0.840001" stroke="currentColor" stroke-width="2"></path>
+          </svg>
+      </button>
+      {% endif %}
+    </div>
+
+    </ap-announcementbar>
+  </section>
+
+<script>
+  document.documentElement.style.setProperty('--ap-announcementbar-height', document.getElementById('shopify-section-announcement-bar').clientHeight + 'px');
+</script>
+
+
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.ap-announcementbar.name",
+  "class": "shopify-section--ap-announcementbar",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "fullwidth",
+      "default": false,
+      "label": "t:sections.ap-announcementbar.settings.fullwidth.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky",
+      "default": false,
+      "label": "t:sections.ap-announcementbar.settings.enable_sticky.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_btn",
+      "default": false,
+      "label": "t:sections.ap-announcementbar.settings.show_btn.label"
+    },
+    {
+      "type":"checkbox",
+      "id":"show_login",
+      "default": false,
+      "label": "Show Login"
+    },
+    {
+      "type": "text",
+      "id": "content_sign",
+      "default": "Sign in",
+      "label": "t:sections.ap-announcementbar.settings.content_sign.label"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "t:sections.ap-announcementbar.settings.heading_color.label",
+      "default": "#404040"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.ap-announcementbar.settings.text_color.label",
+      "default": "#626262"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "t:sections.ap-announcementbar.settings.button_background.label",
+      "default": "#404040"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "t:sections.ap-announcementbar.settings.button_text_color.label",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "t:sections.ap-announcementbar.settings.background.label",
+      "default": "#F5F5F5"
+    },
+    {
+      "type": "text",
+      "id": "z_index",
+      "label": "t:sections.ap-announcementbar.settings.z_index.label",
+      "default": "4"
+    },
+    {
+      "type": "text",
+      "id": "top",
+      "label": "t:sections.ap-announcementbar.settings.top.label",
+      "default": "0"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.ap-announcementbar.blocks.announcement.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "FREE Delivery Over $100 All Products",
+          "label": "t:sections.ap-announcementbar.blocks.announcement.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "text--xxsmall",
+              "label": "t:sections.ap-announcementbar.blocks.announcement.settings.text_size.xxsmall.label"
+            },
+            {
+              "value": "text--xsmall",
+              "label": "t:sections.ap-announcementbar.blocks.announcement.settings.text_size.xsmall.label"
+            },
+            {
+              "value": "text--small",
+              "label": "t:sections.ap-announcementbar.blocks.announcement.settings.text_size.small.label"
+            },
+            {
+              "value": "text--nomal",
+              "label": "t:sections.ap-announcementbar.blocks.announcement.settings.text_size.nomal.label"
+            },
+            {
+              "value": "text--large",
+              "label": "t:sections.ap-announcementbar.blocks.announcement.settings.text_size.large.label"
+            }
+          ],
+          "default": "text--xxsmall",
+          "label": "t:sections.ap-announcementbar.blocks.announcement.settings.text_size.label"
+        },
+        {
+          "type": "text",
+          "id": "view_more",
+          "label": "t:sections.ap-announcementbar.blocks.announcement.settings.view_more.label",
+          "default": "View more"
+        },
+        {
+          "type": "url",
+          "id": "link_view",
+          "label": "t:sections.ap-announcementbar.blocks.announcement.settings.link_view.label"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "announcement"
+      }
+    ]
+  }
+}
+{% endschema %}

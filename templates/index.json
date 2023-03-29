@@ -1,0 +1,575 @@
+{
+    "sections": {
+      "6fe8fbaa-5a22-4c15-86c6-9ad636d793b6": {
+        "type": "slideshow",
+        "blocks": {
+          "template--16958845452582__6fe8fbaa-5a22-4c15-86c6-9ad636d793b6-16686800571d36d11f-0": {
+            "type": "slide",
+            "settings": {
+              "image_1": "shopify:\/\/shop_images\/Mask_group.png",
+              "heading": "PRINTING SERVICES",
+              "heading_size": "heading--xsmall",
+              "subheading": "The leader in <br> quality custom",
+              "subheading_size": "heading--large",
+              "description": "Turn your ideas into premium products <br> that leave a lasting impression",
+              "des_size": "heading--nomal",
+              "color_des": "#ffffff",
+              "button1_label": "Get Found",
+              "link1": "shopify:\/\/collections",
+              "button2_label": "",
+              "link2": "shopify:\/\/collections",
+              "box_size": "medium",
+              "box_align": "left",
+              "text_align": "left",
+              "heading_color": "#ffffff",
+              "text_color": "#ffffff",
+              "button_background": "#f4a51c",
+              "button_text_color": "#ffffff",
+              "blocks_overlay_color": "#000000",
+              "logo_width": 5
+            }
+          },
+          "607b94a5-b04e-4389-b522-67873726d8b3": {
+            "type": "slide",
+            "settings": {
+              "image_1": "shopify:\/\/shop_images\/2_1.png",
+              "heading": "Printing services",
+              "heading_size": "heading--xxsmall",
+              "subheading": "The leader in <br> quality custom",
+              "subheading_size": "heading--large",
+              "description": "Turn your ideas into premium products <br> that leave a lasting impression",
+              "des_size": "heading--nomal",
+              "color_des": "#FFFFFF",
+              "button1_label": "Get Found",
+              "link1": "",
+              "button2_label": "",
+              "link2": "",
+              "box_size": "medium",
+              "box_align": "left",
+              "text_align": "left",
+              "heading_color": "#ffffff",
+              "text_color": "#ffffff",
+              "button_background": "#f4a51c",
+              "button_text_color": "#ffffff",
+              "blocks_overlay_color": "#000000",
+              "logo_width": 5
+            }
+          }
+        },
+        "block_order": [
+          "template--16958845452582__6fe8fbaa-5a22-4c15-86c6-9ad636d793b6-16686800571d36d11f-0",
+          "607b94a5-b04e-4389-b522-67873726d8b3"
+        ],
+        "settings": {
+          "progress_bar_color": "#ffffff",
+          "autoplay_duration": 5,
+          "background_color": "#282828",
+          "slideshow_height": "slideshow--medium",
+          "show_dot": false
+        }
+      },
+      "742da9f9-6946-46ae-8075-c81aaf4bf777": {
+        "type": "child-collections",
+        "blocks": {
+          "template--17631061246268__742da9f9-6946-46ae-8075-c81aaf4bf777-16739233048f6d4835-0": {
+            "type": "collection",
+            "settings": {
+              "collection": "case-computer-case",
+              "icon_svg": "",
+              "title": "Cases"
+            }
+          },
+          "template--17631061246268__742da9f9-6946-46ae-8075-c81aaf4bf777-16739233048f6d4835-1": {
+            "type": "collection",
+            "settings": {
+              "collection": "keyboards",
+              "icon_svg": "",
+              "title": "KEYBOARDS"
+            }
+          },
+          "template--17631061246268__742da9f9-6946-46ae-8075-c81aaf4bf777-16739233048f6d4835-2": {
+            "type": "collection",
+            "settings": {
+              "collection": "mice",
+              "icon_svg": "",
+              "title": "MICE"
+            }
+          },
+          "3f99d9a0-7cfd-496c-a375-b5bf42918a6a": {
+            "type": "collection",
+            "settings": {
+              "collection": "headsets",
+              "icon_svg": "",
+              "title": "hEADSETS"
+            }
+          },
+          "9ce78bb1-9831-4641-b4a0-b07515edbdbc": {
+            "type": "collection",
+            "settings": {
+              "collection": "custom-cooling",
+              "icon_svg": "",
+              "title": "CUSTOM COOLING"
+            }
+          },
+          "9c8b2b65-0f86-498b-abc2-d709d994fd80": {
+            "type": "collection",
+            "settings": {
+              "collection": "memory",
+              "icon_svg": "",
+              "title": "mEMORY"
+            }
+          }
+        },
+        "block_order": [
+          "template--17631061246268__742da9f9-6946-46ae-8075-c81aaf4bf777-16739233048f6d4835-0",
+          "template--17631061246268__742da9f9-6946-46ae-8075-c81aaf4bf777-16739233048f6d4835-1",
+          "template--17631061246268__742da9f9-6946-46ae-8075-c81aaf4bf777-16739233048f6d4835-2",
+          "3f99d9a0-7cfd-496c-a375-b5bf42918a6a",
+          "9ce78bb1-9831-4641-b4a0-b07515edbdbc",
+          "9c8b2b65-0f86-498b-abc2-d709d994fd80"
+        ],
+        "settings": {
+          "background": "#ffffff",
+          "heading_color": "#282828",
+          "text_color": "#282828",
+          "color_svg": "#282828",
+          "button_background": "#ffffff",
+          "button_color": "#282828",
+          "shop_bar_label": "TOP CATEGORIES",
+          "heading": "TOP\n<span>CATEGORIES<\/span>",
+          "heading_size": 1,
+          "row_items": 6
+        }
+      },
+      "5f9828c2-2f64-4836-9630-3cb687a81e00": {
+        "type": "collection-2",
+        "blocks": {
+          "template--17631061246268__5f9828c2-2f64-4836-9630-3cb687a81e00-1673927495c7d832c4-0": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "gear-pc",
+              "highlight": false,
+              "sub_title": "",
+              "sub_color": "#282828",
+              "heading_color": "#ffffff",
+              "heading": "Final Sale",
+              "heading_size_range": 4,
+              "des_collection": "Up to $400 off Headphones",
+              "des_color": "#ffffff",
+              "heading_2": "see detail",
+              "heading_2_size": "heading--xsmall",
+              "text_color": "#ffffff",
+              "overlay": "#000000",
+              "overlay_opacity": 1,
+              "link": "",
+              "text_align": "left"
+            }
+          },
+          "template--17631061246268__5f9828c2-2f64-4836-9630-3cb687a81e00-1673927495c7d832c4-1": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "gear-pc",
+              "highlight": false,
+              "sub_title": "",
+              "sub_color": "#ffffff",
+              "heading_color": "#ffffff",
+              "heading": "Get Ready \n<br>\nwith Asus",
+              "heading_size_range": 4,
+              "des_collection": "The best gear to start gaming",
+              "des_color": "#ffffff",
+              "heading_2": "shop now",
+              "heading_2_size": "heading--xsmall",
+              "text_color": "#ffffff",
+              "overlay": "#000000",
+              "overlay_opacity": 1,
+              "link": "",
+              "text_align": "left"
+            }
+          },
+          "template--17631061246268__5f9828c2-2f64-4836-9630-3cb687a81e00-1673927495c7d832c4-2": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "gear-pc",
+              "highlight": false,
+              "sub_title": "WESTERN DIGITAL",
+              "sub_color": "#ffffff",
+              "heading_color": "#ffffff",
+              "heading": "Speed + Capacity",
+              "heading_size_range": 4,
+              "des_collection": "",
+              "des_color": "#282828",
+              "heading_2": "get a boost",
+              "heading_2_size": "heading--xsmall",
+              "text_color": "#ffffff",
+              "overlay": "#000000",
+              "overlay_opacity": 1,
+              "link": "",
+              "text_align": "left"
+            }
+          }
+        },
+        "block_order": [
+          "template--17631061246268__5f9828c2-2f64-4836-9630-3cb687a81e00-1673927495c7d832c4-0",
+          "template--17631061246268__5f9828c2-2f64-4836-9630-3cb687a81e00-1673927495c7d832c4-1",
+          "template--17631061246268__5f9828c2-2f64-4836-9630-3cb687a81e00-1673927495c7d832c4-2"
+        ],
+        "settings": {
+          "section_background": "#ffffff",
+          "heading_color": "#ffffff",
+          "text_color": "#282828",
+          "number_column": 3,
+          "heading": "HOT <span>OFFERS<\/span>",
+          "heading_size_range": 1,
+          "description": "",
+          "description_size": "heading--xsmall"
+        }
+      },
+      "d4fb84f8-9ed2-4da8-b020-fa0982f07bfb": {
+        "type": "image-banner",
+        "blocks": {
+          "template--17631061246268__d4fb84f8-9ed2-4da8-b020-fa0982f07bfb-1673948200d8955b1b-0": {
+            "type": "heading",
+            "settings": {
+              "heading": "WEEKLY <span> DEALS <\/span>",
+              "heading_size": "h1"
+            }
+          },
+          "template--17631061246268__d4fb84f8-9ed2-4da8-b020-fa0982f07bfb-1673948200d8955b1b-1": {
+            "type": "text",
+            "settings": {
+              "text": "With Best Flash Sale up <span>50% Off<\/span>",
+              "text_style": "body"
+            }
+          },
+          "template--17631061246268__d4fb84f8-9ed2-4da8-b020-fa0982f07bfb-1673948200d8955b1b-2": {
+            "type": "buttons",
+            "settings": {
+              "button_label_1": "View All Deals",
+              "button_link_1": "shopify:\/\/collections",
+              "button_style_secondary_1": false,
+              "button_label_2": "",
+              "button_link_2": "",
+              "button_style_secondary_2": false
+            }
+          }
+        },
+        "block_order": [
+          "template--17631061246268__d4fb84f8-9ed2-4da8-b020-fa0982f07bfb-1673948200d8955b1b-0",
+          "template--17631061246268__d4fb84f8-9ed2-4da8-b020-fa0982f07bfb-1673948200d8955b1b-1",
+          "template--17631061246268__d4fb84f8-9ed2-4da8-b020-fa0982f07bfb-1673948200d8955b1b-2"
+        ],
+        "settings": {
+          "image_overlay_opacity": 0,
+          "image_height": "medium",
+          "adapt_height_first_image": false,
+          "desktop_content_position": "middle-center",
+          "show_text_box": true,
+          "desktop_content_alignment": "center",
+          "color_scheme": "background-1",
+          "mobile_content_alignment": "center",
+          "stack_images_on_mobile": true,
+          "show_text_below": true
+        }
+      },
+      "d08324ed-9e9d-40d1-b3a0-4529bab9dfbf": {
+        "type": "image-with-text-block",
+        "blocks": {
+          "template--17631061246268__d08324ed-9e9d-40d1-b3a0-4529bab9dfbf-16740066065f6a62cf-0": {
+            "type": "heading_1",
+            "settings": {
+              "heading_1": "G560",
+              "heading_size": "heading--large"
+            }
+          },
+          "template--17631061246268__d08324ed-9e9d-40d1-b3a0-4529bab9dfbf-16740066065f6a62cf-1": {
+            "type": "heading_2",
+            "settings": {
+              "heading_2": "LIGHTSYNC SPEAKERS",
+              "heading_size_range": 5
+            }
+          },
+          "template--17631061246268__d08324ed-9e9d-40d1-b3a0-4529bab9dfbf-16740066065f6a62cf-2": {
+            "type": "box_content",
+            "settings": {
+              "text": "<span>LIGHT <\/span> + SOUND <br> DRIVEN BY GAMES"
+            }
+          },
+          "template--17631061246268__d08324ed-9e9d-40d1-b3a0-4529bab9dfbf-16740066065f6a62cf-3": {
+            "type": "button_readmore",
+            "settings": {
+              "read_more": "Shop Now",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "template--17631061246268__d08324ed-9e9d-40d1-b3a0-4529bab9dfbf-16740066065f6a62cf-0",
+          "template--17631061246268__d08324ed-9e9d-40d1-b3a0-4529bab9dfbf-16740066065f6a62cf-1",
+          "template--17631061246268__d08324ed-9e9d-40d1-b3a0-4529bab9dfbf-16740066065f6a62cf-2",
+          "template--17631061246268__d08324ed-9e9d-40d1-b3a0-4529bab9dfbf-16740066065f6a62cf-3"
+        ],
+        "settings": {
+          "content_position": "full",
+          "content_size": "medium",
+          "content_align": "right",
+          "block_background": "rgba(0,0,0,0)",
+          "heading_color": "#ffffff",
+          "text_color": "#ffffff",
+          "button_background": "#ffffff",
+          "button_text_color": "#000000",
+          "margin_top": 0
+        }
+      },
+      "5035e41f-919d-412a-a840-4dcf568ea86c": {
+        "type": "product-list",
+        "settings": {
+          "fullwidth": true,
+          "section_background": "#ffffff",
+          "heading_color": "#282828",
+          "text_color": "#282828",
+          "prev_next_button_background": "#ffffff",
+          "prev_next_button_color": "#282828",
+          "products_per_row": 6,
+          "products_per_row_mobile": 2,
+          "products_per_row_tablet": 4,
+          "desktop_1500": 4,
+          "products_per_row_desktop": 6,
+          "tab_heading": "FEATURED  <span>PRODUCTS<\/span>",
+          "tab_heading_size": 1,
+          "tab_description": "",
+          "tab_name_size": "",
+          "view_more": false,
+          "collection": "case-computer-case",
+          "limit": 10
+        }
+      },
+      "d4250e5c-36bf-46a3-8612-d26b1b4e20bf": {
+        "type": "image-with-text-block",
+        "blocks": {
+          "template--17631061246268__d4250e5c-36bf-46a3-8612-d26b1b4e20bf-16740126566e05e652-0": {
+            "type": "heading_1",
+            "settings": {
+              "heading_1": "GAMING COLLECTION",
+              "heading_size": "heading--xxsmall"
+            }
+          },
+          "template--17631061246268__d4250e5c-36bf-46a3-8612-d26b1b4e20bf-16740126566e05e652-1": {
+            "type": "heading_2",
+            "settings": {
+              "heading_2": "<span>PLAYSTATION 4 <\/span><br>Dualshock Controller",
+              "heading_size_range": 2
+            }
+          },
+          "template--17631061246268__d4250e5c-36bf-46a3-8612-d26b1b4e20bf-16740126566e05e652-2": {
+            "type": "box_content",
+            "settings": {
+              "text": "SALE PRICE: $125"
+            }
+          },
+          "template--17631061246268__d4250e5c-36bf-46a3-8612-d26b1b4e20bf-16740126566e05e652-3": {
+            "type": "button_readmore",
+            "settings": {
+              "read_more": "Shop Now",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "template--17631061246268__d4250e5c-36bf-46a3-8612-d26b1b4e20bf-16740126566e05e652-0",
+          "template--17631061246268__d4250e5c-36bf-46a3-8612-d26b1b4e20bf-16740126566e05e652-1",
+          "template--17631061246268__d4250e5c-36bf-46a3-8612-d26b1b4e20bf-16740126566e05e652-2",
+          "template--17631061246268__d4250e5c-36bf-46a3-8612-d26b1b4e20bf-16740126566e05e652-3"
+        ],
+        "settings": {
+          "content_position": "full",
+          "content_size": "small",
+          "content_align": "left",
+          "block_background": "rgba(0,0,0,0)",
+          "heading_color": "#ffffff",
+          "text_color": "#ffffff",
+          "button_background": "#f4a51c",
+          "button_text_color": "#ffffff",
+          "margin_top": 0
+        }
+      },
+      "10ed4cb4-8a90-4864-8ef4-31a00b67cf42": {
+        "type": "newsletter",
+        "blocks": {
+          "template--17631061246268__10ed4cb4-8a90-4864-8ef4-31a00b67cf42-16740264556e21e191-0": {
+            "type": "heading",
+            "settings": {
+              "heading": "FIND OUT ABOUT NEW <br> RELEASES AND <span> SPECIALS <\/span>",
+              "heading_text_size": 2
+            }
+          },
+          "template--17631061246268__10ed4cb4-8a90-4864-8ef4-31a00b67cf42-16740264556e21e191-1": {
+            "type": "paragraph",
+            "settings": {
+              "text": "<p>Sign up to our newsletter to receive special offers and the latest news directly in your inbox.<\/p>"
+            }
+          },
+          "template--17631061246268__10ed4cb4-8a90-4864-8ef4-31a00b67cf42-16740264556e21e191-2": {
+            "type": "email_form",
+            "settings": {
+            }
+          },
+          "b94a0a06-947f-4191-bcd0-ff0485b20ce1": {
+            "type": "description",
+            "settings": {
+              "description": "We hate spam, and we respect your privacy."
+            }
+          }
+        },
+        "block_order": [
+          "template--17631061246268__10ed4cb4-8a90-4864-8ef4-31a00b67cf42-16740264556e21e191-0",
+          "template--17631061246268__10ed4cb4-8a90-4864-8ef4-31a00b67cf42-16740264556e21e191-1",
+          "template--17631061246268__10ed4cb4-8a90-4864-8ef4-31a00b67cf42-16740264556e21e191-2",
+          "b94a0a06-947f-4191-bcd0-ff0485b20ce1"
+        ],
+        "settings": {
+          "section_background": "#ffffff",
+          "heading_color": "#282828",
+          "text_color": "#282828",
+          "button_background": "#f4a51c",
+          "button_color": "#ffffff"
+        }
+      },
+      "738e615a-9a96-40ad-b8ad-216f708e6d31": {
+        "type": "testimonial",
+        "blocks": {
+          "template--17631061246268__738e615a-9a96-40ad-b8ad-216f708e6d31-16740298119b2ee93f-0": {
+            "type": "testimonial",
+            "settings": {
+              "content": "“Fringilla iaculis ante torquent a diam a vestibulum diam nisi augue dictumst parturient a vestibulum tortor viverra inceptos adipiscing nec a ullamcorper.Ullamcorper aliquam rutrum.”",
+              "author": "<span>JOHN DOE<\/span> - DESIGN"
+            }
+          },
+          "template--17631061246268__738e615a-9a96-40ad-b8ad-216f708e6d31-16740298119b2ee93f-1": {
+            "type": "testimonial",
+            "settings": {
+              "content": "“Fringilla iaculis ante torquent a diam a vestibulum diam nisi augue dictumst parturient a vestibulum tortor viverra inceptos adipiscing nec a ullamcorper.Ullamcorper aliquam rutrum.”",
+              "author": "<span>JOHN DOE<\/span> - DESIGN"
+            }
+          },
+          "template--17631061246268__738e615a-9a96-40ad-b8ad-216f708e6d31-16740298119b2ee93f-2": {
+            "type": "testimonial",
+            "settings": {
+              "content": "“Fringilla iaculis ante torquent a diam a vestibulum diam nisi augue dictumst parturient a vestibulum tortor viverra inceptos adipiscing nec a ullamcorper.Ullamcorper aliquam rutrum.”",
+              "author": "<span>JOHN DOE<\/span> - DESIGN"
+            }
+          }
+        },
+        "block_order": [
+          "template--17631061246268__738e615a-9a96-40ad-b8ad-216f708e6d31-16740298119b2ee93f-0",
+          "template--17631061246268__738e615a-9a96-40ad-b8ad-216f708e6d31-16740298119b2ee93f-1",
+          "template--17631061246268__738e615a-9a96-40ad-b8ad-216f708e6d31-16740298119b2ee93f-2"
+        ],
+        "settings": {
+          "fullwidth": true,
+          "show_nav": false,
+          "section_background": "#ffffff",
+          "heading": "CUSTOMER <span> REVIEWS",
+          "heading_color": "#ffffff",
+          "heading_size_range": 2,
+          "description": "",
+          "description_size": "",
+          "text_color": "#ffffff",
+          "prev_next_button_background": "#ffffff",
+          "prev_next_button_color": "#282828",
+          "collection": "custom-cooling",
+          "heading_collection": "",
+          "heading_size_collection": 4,
+          "heading_2": "Be your\n<br>\n<span> Coolest Expert",
+          "heading_2_size": "heading--xsmall",
+          "link": "shopify:\/\/collections\/case-computer-case"
+        }
+      },
+      "2c34937b-c49b-45fb-ae58-9e88556169fa": {
+        "type": "featured-blog",
+        "settings": {
+          "blog_type": "type-2",
+          "section_background": "#ffffff",
+          "heading_color": "#282828",
+          "text_color": "#282828",
+          "color_info": "#282828",
+          "color_description": "#282828",
+          "color_btn": "#000000",
+          "color_btn_hover": "#282828",
+          "heading": "NEWS & <span>EVENTS<\/span>",
+          "heading_size_range": 1,
+          "description": "",
+          "description_size": "heading--xsmall",
+          "blog": "news",
+          "post_limit": 4,
+          "columns_desktop": 4,
+          "show_date": true,
+          "show_author": true,
+          "show_tag": true,
+          "btn_blog": "Read More",
+          "show_view_all": false
+        }
+      },
+      "ac6dba4f-935e-4e8a-b9e6-d05b3b4f8aee": {
+        "type": "logo-list",
+        "blocks": {
+          "template--17443037872444__ac6dba4f-935e-4e8a-b9e6-d05b3b4f8aee-1673251378797d3482-0": {
+            "type": "logo",
+            "settings": {
+            }
+          },
+          "template--17443037872444__ac6dba4f-935e-4e8a-b9e6-d05b3b4f8aee-1673251378797d3482-1": {
+            "type": "logo",
+            "settings": {
+            }
+          },
+          "template--17443037872444__ac6dba4f-935e-4e8a-b9e6-d05b3b4f8aee-1673251378797d3482-2": {
+            "type": "logo",
+            "settings": {
+            }
+          },
+          "806548f0-c76e-45b9-a507-8d044d15c9a2": {
+            "type": "logo",
+            "settings": {
+            }
+          },
+          "8111c296-4436-4e11-946b-3fd2afc9ebec": {
+            "type": "logo",
+            "settings": {
+            }
+          }
+        },
+        "block_order": [
+          "template--17443037872444__ac6dba4f-935e-4e8a-b9e6-d05b3b4f8aee-1673251378797d3482-0",
+          "template--17443037872444__ac6dba4f-935e-4e8a-b9e6-d05b3b4f8aee-1673251378797d3482-1",
+          "template--17443037872444__ac6dba4f-935e-4e8a-b9e6-d05b3b4f8aee-1673251378797d3482-2",
+          "806548f0-c76e-45b9-a507-8d044d15c9a2",
+          "8111c296-4436-4e11-946b-3fd2afc9ebec"
+        ],
+        "settings": {
+          "section_background": "#ffffff",
+          "heading_color": "#282828",
+          "text_color": "#282828",
+          "number_column": 5,
+          "heading": "",
+          "heading_size_range": 3,
+          "heading_2": "",
+          "heading_2_size_range": 3,
+          "description": "",
+          "description_size": "heading--xsmall"
+        }
+      }
+    },
+    "order": [
+      "6fe8fbaa-5a22-4c15-86c6-9ad636d793b6",
+      "742da9f9-6946-46ae-8075-c81aaf4bf777",
+      "5f9828c2-2f64-4836-9630-3cb687a81e00",
+      "d4fb84f8-9ed2-4da8-b020-fa0982f07bfb",
+      "d08324ed-9e9d-40d1-b3a0-4529bab9dfbf",
+      "5035e41f-919d-412a-a840-4dcf568ea86c",
+      "d4250e5c-36bf-46a3-8612-d26b1b4e20bf",
+      "10ed4cb4-8a90-4864-8ef4-31a00b67cf42",
+      "738e615a-9a96-40ad-b8ad-216f708e6d31",
+      "2c34937b-c49b-45fb-ae58-9e88556169fa",
+      "ac6dba4f-935e-4e8a-b9e6-d05b3b4f8aee"
+    ]
+  }

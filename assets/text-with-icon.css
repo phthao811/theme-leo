@@ -1,0 +1,11 @@
+.text-with-icons .text-with-icons__content-wrapper .description-icon {
+  color: var(--color-body);
+  margin-top: 5px;
+}
+.text-with-icons .text-with-icons__content-wrapper .title-icon {
+  color: var(--title-color);
+  margin-bottom: 5px;
+}
+.dots-nav__item {
+  background-color: var(--color-body);
+}   
