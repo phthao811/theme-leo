@@ -1,6 +1,6 @@
 <ap-listarticle stagger-apparition="" class="article-type-2 ap-listarticle ap-listarticle--section ap-listarticle--collage hd-pocket ap-object-loaded">
 
-    <div class="ap-listarticle__secondary-list">
+    <div class="ap-listarticle__secondary-list grid--{{ section.settings.columns_desktop }}-col-desktop{% if section.settings.collection == blank %}grid--2-col-tablet-down{% else %} grid--{{ section.settings.columns_mobile }}-col-tablet-down{% endif %}">
         {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
         {% if forloop.index > 1 %}
         <div reveal="" class="article-item article-item--horizontal image-zoom">
@@ -18,8 +18,13 @@
                         alt="{{ article.image.src.alt | escape }}" class="article-item__image"
                         loading="lazy" width="{{ article.image.width }}"
                         height="{{ article.image.height }}">
-    
-                    <span
+                        {%- if section.settings.show_date -%}
+                        <span class="blog_date">
+                            <span class="blog_date-day">{{ article.published_at | date: "%d" }}</span>
+                            <span class="blog_date-month">{{ article.published_at | date: "%b" }}</span>
+                        </span>
+                    {%- endif -%}
+                    {% comment %} <span
                         class="article-item__arrow ap-nextap-buttonprev ap-nextap-buttonprev--small ap-nextap-buttonprev--next">
                         <svg focusable="false" width="15" height="12"
                             class="icon icon--nav-arrow-right  icon--direction-aware "
@@ -27,26 +32,20 @@
                             <path d="M0 7h15M9 1l6 6-6 6" stroke="currentColor" stroke-width="2"
                                 fill="none"></path>
                         </svg>
-                    </span>
+                    </span> {% endcomment %}
                 </a>
 
-                {%- if section.settings.show_tag -%}
-                    {%- if article.tags.size > 0 -%}
-                    {% assign tag = article.tags[0] %}
-                    <a class="article-item__category heading heading--xsmall"
-                        href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
-                    {%- endif -%}
-                {%- endif -%}
-
             </div>
-            <div class="article-item__content text-container">
+            <div class="article-item__content text-container" style="padding:0 2rem">
 
                 <div class="article">
 
-                {%- if section.settings.show_date -%}
-                    <span class="blog-date">
-                    {{ article.published_at | time_tag: "%B %d, %Y" }}
-                    </span>
+                {%- if section.settings.show_tag -%}
+                {%- if article.tags.size > 0 -%}
+                {% assign tag = article.tags[0] %}
+                <a class="article-item__category"
+                    href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
+                {%- endif -%}
                 {%- endif -%}
                 {%- if section.settings.show_author -%}
                     <span class="blog-author">By {{ article.author }}</span>
@@ -55,15 +54,15 @@
                 </div>
 
                 <h3 class="article-item__title heading h5">
-                    <a href="{{ article.url }}">{{ article.title | truncate: 50 | escape }}</a>
+                    <a href="{{ article.url }}">{{ article.title | escape }}</a>
                 </h3>
-
-                <div class="article-item-description">{{ article.content }}</div>
-
+                {%- if section.settings.show_desc-%}
+                    <div class="article-item-description">{{ article.content }}</div>
+                {%- endif -%}
                 {% if section.settings.btn_blog != blank %}
                 <a class="btn-blog" href="{{ article.url }}">
                     {{ section.settings.btn_blog }}
-                    <span>+</span>
+                    <span class="button-withicon">{%- render 'icon-arrow' -%}</span>
                 </a>
                 {% endif %}
 

@@ -1,0 +1,87 @@
+<ap-imagetextblock reveal-on-scroll="" class="ap-imagetextblock ap-imagetextblock--small ap-imagetextblock--cover ap-object-loaded">
+    {% if section.settings.image_background != blank %}
+    <div class="ap-imagetextblock__image-wrapper {% if section.settings.layout == 'grid' %}container{% endif %}">
+      <img class="ap-imagetextblock__image" reveal="" loading="lazy" 
+        sizes="(max-width: 999px) 100vw, 72vw" alt="" 
+        src="{{ section.settings.image_background | image_url: width: section.settings.image_background.width }}" 
+        srcset="
+          {{ section.settings.image_background | image_url: width: 600 }} 600w, 
+          {{ section.settings.image_background | image_url: width: 700 }} 700w, 
+          {{ section.settings.image_background | image_url: width: 800 }} 800w, 
+          {{ section.settings.image_background | image_url: width: 1000 }} 1000w, 
+          {{ section.settings.image_background | image_url: width: 1200 }} 1200w, 
+          {{ section.settings.image_background | image_url: width: 1400 }} 1400w, 
+          {{ section.settings.image_background | image_url: width: 1600 }} 1600w, 
+          {{ section.settings.image_background | image_url: width: 1800 }} 1800w, 
+          {{ section.settings.image_background | image_url: width: 2000 }} 2000w" 
+        width="{{ section.settings.image_background.width }}" height="{{ section.settings.image_background.height }}">
+    </div>
+    {% endif %}
+    <div class="container container--flush">
+      <div reveal="" class="newsletter-content ap-imagetextblock__content ap-imagetextblock__content--tight content-box content-box--small content-box--text-left content-box--left text-container">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
+            {%- when 'heading' -%}
+              <h2 class="heading heading--small" {{ block.shopify_attributes }}>{{ block.settings.heading }}</h2>
+            {%- when 'paragraph' -%}
+              {{ block.settings.text }}
+            {%- when 'email_form' -%}
+              <div {{ block.shopify_attributes }}>
+                {% form 'customer', class: 'newsletter-form' %}
+                  <input type="hidden" name="form_type" value="customer">
+                  <input type="hidden" name="utf8" value="✓">
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+                  <input type="hidden" name="contact[context]" value="newsletter-{{ section.id }}">
+
+                  <div class="wp-newsletter-input">
+                    <div class="input-row">
+                      <div class="input">
+                        <input type="email" id="newsletter[{{ section.id }}][contact][email]" name="contact[email]" class="input__field" required="">
+                        <label for="newsletter[{{ section.id }}][contact][email]" class="input__label">{{ 'newsletter.label' | t }}</label>
+                      </div>
+                    </div>
+                    <div class="input">
+                      <button type="submit" is="loader-button" class="button button--primary">
+                        <span class="ap-text-loaderbutton">{{ 'newsletter.button_label' | t }}</span>
+                        {%- if section.settings.icon_button -%}
+                          <span class="button-withicon">{%- render 'icon-arrow' -%}</span>
+                          {%- endif-%}
+                        <span class="ap-loader-loaderbutton" hidden="">
+                          <div class="spinner">
+                            <svg focusable="false" width="24" height="24" class="icon icon--spinner" viewBox="25 25 50 50">
+                              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5"></circle>
+                            </svg>
+                          </div>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+
+                  {%- if form.errors -%}
+                    <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
+                  {%- endif -%}
+                  {%- if form.posted_successfully? -%}
+                    <div class="form__banner banner banner--success">
+                      <span class="banner__ribbon">
+                        <svg focusable="false" width="18" height="26" class="icon icon--form-success   " viewBox="0 0 18 26">
+                          <circle fill="none" cx="9" cy="13" r="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></circle>
+                          <path fill="none" d="M5 13l3 3 5-6" stroke="currentColor" stroke-width="1.5"></path>
+                        </svg>
+                      </span>
+                      <p class="banner__content">{{ 'newsletter.success' | t }}</p>
+                    </div>
+                  {%- endif -%}
+
+                {% endform %}
+              </div>
+            {%- when 'description' -%}
+              <div class="description-newsletter">
+                {{ block.settings.description }}
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </ap-imagetextblock>

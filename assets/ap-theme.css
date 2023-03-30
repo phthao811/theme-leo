@@ -555,7 +555,7 @@ p a:not(.button),
 .heading--xxsmall {
   font-family: var(--body-font-family);
   font-style: var(--text-font-style);
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-weight: var(--text-font-bold-weight);
   line-height: 1.4663636;
   letter-spacing: 1px;
@@ -8630,20 +8630,40 @@ button.mobile-nav__link {
   --heading-color: 255, 255, 255;
   --color-body: 255, 255, 255;
   position: relative;
-  display: block;
+  /* display: block; */
+  display: flex;
   text-align: center;
   background: rgb(var(--secondary-background));
   border-radius: var(--block-border-radius-reduced);
   overflow: hidden;
   z-index: 0;
+  justify-content: space-between;
+  padding: 3rem 0;
 }
+.list-collections__item--left{
+  text-align: left;
+}
+.list-collections__item--center{
+  text-align: center;
+}
+.list-collections__item--right{
+  text-align: right;
+}
+.list_collection--before{
+  flex-direction: column;
+}
+.list_collection--after{
+  flex-direction: column-reverse;
+}
+
+
 .list-collections__item:hover .link {
   -webkit-text-decoration-color: rgb(var(--color-body));
   text-decoration-color: rgb(var(--color-body));
 }
 .list-collections__item-image-wrapper {
   position: relative;
-  height: 100%;
+  /* height: 100%; */
 }
 .list-collections__item.has-overlay .list-collections__item-image-wrapper:before {
   content: "";
@@ -8660,14 +8680,14 @@ button.mobile-nav__link {
   z-index: 1;
 }
 .list-collections__item-image {
-  height: 100%;
+  /* height: 100%; */
   -o-object-fit: cover;
   object-fit: cover;
   -o-object-position: center;
   object-position: center;
 }
 .list-collections__item-info {
-  position: absolute;
+  /* position: absolute; */
   top: 50%;
   left: 0;
   width: 100%;
@@ -11868,13 +11888,24 @@ shopify-payment-terms {
 .text-with-icons__dots {
   margin-top: 26px;
 }
+@media (max-width: 989px){
+  .arrow-step{
+    display: none;
+  }
+}
+.arrow-step:last-child{
+  display: none;
+}
+.arrow-step{
+  margin-top: 2rem;
+}
 @media (min-width: 1000px) {
   .text-with-icons__list {
     display: grid;
     grid-gap: 48px;
-    gap: 48px;
+    gap: 25px;
     grid-auto-flow: column;
-    grid-auto-columns: minmax(200px, 400px);
+    /* grid-auto-columns: minmax(200px, 400px); */
     justify-content: center;
     margin-left: 0;
     margin-right: 0;
@@ -12711,4 +12742,7 @@ button#close {
   .ap-productlist__inner--scroller {
     grid-auto-columns: 100vw;
   }
+}
+.imagetextblock_background{
+  background-color: transparent;
 }

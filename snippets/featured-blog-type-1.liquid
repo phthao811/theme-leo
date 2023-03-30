@@ -71,7 +71,7 @@
                 <a class="article-item__category heading heading--xsmall" href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
               {%- endif -%}
               <h3 class="article-item__title heading h5">
-                <a href="{{ article.url }}">{{ article.title | truncate: 50 | escape }}</a>
+                <a href="{{ article.url }}">{{ article.title | escape }}</a>
               </h3>
             </div>
           </div>

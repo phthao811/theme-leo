@@ -5,14 +5,26 @@
         --heading-color: 40, 40, 40;
         --color-body: {{ section.settings.title_color }};
         --title-color: {{ section.settings.text_color }};
-        --vertical-breather: 40px; /* Inner spacing is smaller on this section */;
+        {% comment %} --vertical-breather: 40px; /* Inner spacing is smaller on this section */; {% endcomment %}
         background-color: {{ section.settings.section_background }};
         overflow: hidden;
-    }
+      --gradient-base-accent-2: {% if section.settings.gradient_accent_2 != blank %}{{ section.settings.gradient_accent_2 }}{% else %}{{ settings.colors_accent_2 }}{% endif %};
+    }    
 </style>
 <section class="section section--flush">
     <div class="section__color-wrapper">
         <div class="container vertical-breather">
+          <div class="content_textwithicon" style="text-align:center;">
+            {% if section.settings.caption != blank %}
+              <h2 class="heading heading--small" style="color: var(--primary);">{{ section.settings.caption }}</h2>
+            {% endif %}
+            {% if section.settings.heading != blank %}
+              <h3 class="heading h{{ section.settings.heading_size_range }}" style="line-height:3rem">{{ section.settings.heading }}</h3>
+            {% endif %}
+            {% if section.settings.description != blank %}
+              <p class="">{{ section.settings.description }}</p>
+            {% endif %}
+          </div>
             <ap-carousel class="text-with-icons">
                 <div class="text-with-icons__list hide-scrollbar">
                     {% for block in section.blocks %}
@@ -29,6 +41,18 @@
                                 <p class="description-icon">{{ block.settings.content }}</p>
                             </div>
                         </ap-carousel-item>
+                        {%- if section.settings.show_button_arrow -%}
+                          <div class="arrow-step">
+                            <svg width="90" height="26" viewBox="0 0 90 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M6 13C6 14.6569 4.65685 16 3 16C1.34315 16 0 14.6569 0 13C0 11.3431 1.34315 10 3 10C4.65685 10 6 11.3431 6 13Z" fill="#DBDDE3"/>
+                              <path d="M22 13C22 14.6569 20.6569 16 19 16C17.3431 16 16 14.6569 16 13C16 11.3431 17.3431 10 19 10C20.6569 10 22 11.3431 22 13Z" fill="#DBDDE3"/>
+                              <path d="M38 13C38 14.6569 36.6569 16 35 16C33.3431 16 32 14.6569 32 13C32 11.3431 33.3431 10 35 10C36.6569 10 38 11.3431 38 13Z" fill="#DBDDE3"/>
+                              <path d="M54 13C54 14.6569 52.6569 16 51 16C49.3431 16 48 14.6569 48 13C48 11.3431 49.3431 10 51 10C52.6569 10 54 11.3431 54 13Z" fill="#DBDDE3"/>
+                              <circle cx="77" cy="13" r="12.25" stroke="#DBDDE3" stroke-width="1.5"/>
+                              <path d="M81 13L75 17L75 9L81 13Z" fill="#7000FE"/>
+                              </svg>
+                          </div>
+                        {%- endif -%}
                     {% endfor %}
                 </div>
                 <ap-pagedots class="text-with-icons__dots dots-nav dots-nav--centered hd-lap-and-up">
@@ -57,6 +81,36 @@
       "label": "t:sections.all.section_background.label"
     },
     {
+          "type": "richtext",
+          "id": "caption",
+          "default": "<p>Talk about your brand</p>",
+          "label": "Caption"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h1",
+          "label": "Caption Size"
+        },
+    {
       "type": "text",
       "id": "heading",
       "default": "Testimonial",
@@ -68,6 +122,11 @@
       "default": "#282828",
       "label": "t:sections.all.heading_color.label"
     },
+    {
+        "id": "gradient_accent_2",
+        "type": "color_background",
+        "label": "Gradient color"
+      },
     {
       "type": "range",
       "id": "heading_size_range",
@@ -105,6 +164,12 @@
       "id": "prev_next_button_color",
       "default": "#282828",
       "label": "t:sections.all.prev_next_button_color.label"
+    },
+    {
+      "type": "checkbox",
+      "id":"show_button_arrow",
+      "default": false,
+      "label": "Show button beside"
     }
   ],
   "blocks": [
@@ -119,6 +184,22 @@
             {
               "value": "",
               "label": "None"
+            },
+            {
+              "value":"icon-connect",
+              "label": "Connect"
+            },
+            {
+              "value":"icon-customer",
+              "label": "Customer"
+            },
+            {
+              "value":"icon-printes",
+              "label": "Printes"
+            },
+            {
+              "value":"icon-order",
+              "label": "Order"
             },
             {
               "value": "icon-worldwide",

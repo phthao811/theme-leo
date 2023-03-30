@@ -18,6 +18,12 @@
       margin: {{ section.settings.margin_mobile }};
     }
   }
+  @media(min-width: 768px){
+    .list_collections-container {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
   {% for block in section.blocks %}
     #block-{{ block.id }}-{{ forloop.index }} {
       --heading-color: {{ block.settings.heading_color | color_extract: 'red' }}, {{ block.settings.heading_color | color_extract: 'green' }}, {{ block.settings.heading_color | color_extract: 'blue' }};
@@ -44,7 +50,7 @@
         </header>
       {% endif %}
       
-      <ap-collectionlist reveal-on-scroll="" class="list-collections list-collections--collage ap-object-loaded">
+      <ap-collectionlist reveal-on-scroll="" class="list-collections list-collections--collage ap-object-loaded list_collections-container">
         <div class="container">
           <div class="list-collections__item-list">
             {% for block in section.blocks %}
@@ -54,8 +60,8 @@
                   assign _link = block.settings.link
                 endif
               %}
-              <a id="block-{{ block.id }}-{{ forloop.index }}" href="{{ _link }}" class="list-collections__item {% if block.settings.highlight %}list-collections__item--highlight{% endif %}  has-overlay image-zoom">
-                <div class="list-collections__item-image-wrapper">
+              <a id="block-{{ block.id }}-{{ forloop.index }}" href="{{ _link }}" class="list-collections__item list_collection--{{ section.settings.layout }} {% if block.settings.highlight %}list-collections__item--highlight{% endif %}  has-overlay image-zoom" style="background-color:{{ section.settings.color_card }}">
+                <div class="list-collections__item-image-wrapper list_collection">
                   {% if block.settings.collection.featured_image != blank %}
                     <img class="list-collections__item-image" reveal="" loading="lazy" 
                       sizes="(max-width: 740px) 80vw, (max-width: 999px) 60vw, 425px"
@@ -78,18 +84,19 @@
                     </div>
                   {% endif %}
                 </div>
-                <div class="list-collections__item-info text-container">
-                  <p class="heading h{{ block.settings.heading_size_range }}" reveal="">
-                    {% if block.settings.heading != blank %}
-                      {{- block.settings.heading | escape -}}</p>
-                    {% else %}
-                    {{- block.settings.collection.title | escape -}}</p>
+                <div class="list-collections__item-info text-container content_boxcollection-item list-collections__item--{{ section.settings.text_position }}">
+                    <p class="heading h{{ block.settings.heading_size_range }}" reveal="">
+                      {% if block.settings.heading != blank %}
+                        {{- block.settings.heading | escape -}}</p>
+                      {% else %}
+                      {{- block.settings.collection.title | escape -}}</p>
+                      {% endif %}
+                      
+                    {% if block.settings.heading_2 != blank %}
+                      <span class="heading {{ block.settings.heading_2_size }} link" reveal="">{{ block.settings.heading_2 }}</span>
                     {% endif %}
-                    
-                  {% if block.settings.heading_2 != blank %}
-                    <span class="heading {{ block.settings.heading_2_size }} link" reveal="">{{ block.settings.heading_2 }}</span>
-                  {% endif %}
                 </div>
+                
               </a>
             {% endfor %}
           </div>
@@ -126,6 +133,12 @@
       "label": "t:sections.all.text_color.label"
     },
     {
+      "type": "color",
+      "id":"color_card",
+      "default":"#FFFFFF",
+      "label": "Card color"
+    },
+    {
       "type": "range",
       "id": "number_column",
       "min": 1,
@@ -147,6 +160,42 @@
       "step": 1,
       "default": 1,
       "label": "t:sections.all.heading_size_range.label"
+    },
+    {
+      "type":"select",
+      "id":"layout",
+      "options": [
+        {
+          "value": "before",
+          "label": "Image before content"
+        },
+        {
+          "value": "after",
+          "label": "Content before image"
+        }
+      ],
+      "default":"after",
+      "label": "Layout block"
+    },
+    {
+      "type":"select",
+      "id":"text_position",
+      "options":[
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default":"left",
+      "label": "Text Align"
     },
     {
       "type": "textarea",
@@ -180,6 +229,30 @@
       ],
       "default": "heading--xsmall",
       "label": "t:sections.all.description_size.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
     },
     {
       "type": "header",

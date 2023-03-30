@@ -31,7 +31,7 @@
     }
 {% endstyle %}
   
-  <section class="section img-width-text-section">
+<section class="section img-width-text-section {% if section.settings.layout == 'grid' %}container{% endif %}">
     <div>
       <ap-imagetextblock reveal-on-scroll="" class="ap-imagetextblock ap-imagetextblock--overlap-{{ section.settings.content_position }} ap-object-loaded">
         <div id="{{ section.id }}" class="ap-imagetextblock__image-wrapper">
@@ -52,7 +52,7 @@
             {% endif %}
         </div>
         <div class="container container--flush">
-            <div reveal="" class="ap-imagetextblock__content content-box content-box--{{ section.settings.content_size }} content-box--text-{{ section.settings.content_align }} content-box--{{ section.settings.content_position }} text-container">
+            <div reveal="" class="ap-imagetextblock__content content-box content-box_text--{{ section.settings.text_align }} content-box--{{ section.settings.content_size }} content-box--text-{{ section.settings.content_align }} content-box--{{ section.settings.content_position }} text-container">
               {%- for block in section.blocks -%}
                 {%- case block.type -%}
                   {%- when '@app' -%}
@@ -81,8 +81,12 @@
                       {{ block.settings.text }}
                     
                     {%- when 'button_readmore' -%}
-                      <div class="button-wrapper">
-                        <a href="{{ block.settings.link }}" class="button button--primary">{{ block.settings.read_more }}</a>
+                      <div class="button-wrapper ">
+                          <a href="{{ block.settings.link }}" class="button {% if section.settings.button_inline %} button_inline{% else %} button--primary{% endif %} button_icon">{{ block.settings.read_more }}
+                            {%- if block.settings.icon_button -%}
+                            <span class="button-withicon">{%- render 'icon-arrow' -%}</span>
+                            {%- endif-%}
+                          </a>
                       </div>
                     
                     {%- when 'email_form' -%}
@@ -161,6 +165,22 @@
     },
     {
       "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "full",
+          "label": "Full"
+        },
+        {
+          "value": "grid",
+          "label": "Grid"
+        }
+      ],
+      "default": "full",
+      "label": "Layout"
+    },
+    {
+      "type": "select",
       "id": "content_position",
       "options": [
         {
@@ -220,6 +240,26 @@
       "label": "t:sections.all.content_align.label"
     },
     {
+      "type": "select",
+      "id": "text_align",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.content_align.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.content_align.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.content_align.options__3.label"
+        }
+      ],
+      "default": "left",
+      "label": "Text Align"
+    },
+    {
       "type": "color",
       "id": "block_background",
       "default": "#405DE6",
@@ -248,6 +288,12 @@
       "id": "button_text_color",
       "default": "#405DE6",
       "label": "t:sections.all.button_text_color.label"
+    },
+    {
+      "type": "checkbox",
+      "id":"button_inline",
+      "default": false,
+      "label": "Enable button"
     },
     {
       "type": "header",
@@ -347,6 +393,12 @@
           "id": "read_more",
           "label": "t:sections.all.read_more.label",
           "default": "Read more"
+        },
+        {
+          "type": "checkbox",
+          "id": "icon_button",
+          "label":"Enable icon",
+          "default": false
         },
         {
           "type": "url",
